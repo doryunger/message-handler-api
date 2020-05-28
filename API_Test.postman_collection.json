@@ -1,0 +1,260 @@
+{
+	"info": {
+		"_postman_id": "c95004f3-ee35-491b-9c05-5fdff85a89ae",
+		"name": "API_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6076d94-65c8-4f37-afa4-98d3901ddb8f",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set('token', data.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "",
+							"description": "1z",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/login_user",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"login_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "243e336a-435d-4f54-a795-1d7093261f0c",
+						"exec": [
+							"var data = pm.response.json();",
+							"pm.environment.set('token', null);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/logout_user",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"logout_user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createmsg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "params",
+							"value": "{'receiver':'user1','subject':\"Re:good morning\",'content':\"Couldn't see any unfortunately\"}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/createmsg",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"createmsg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "showmsgs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/showmsgs",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"showmsgs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unreadmsgs",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/unreadmsgs",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"unreadmsgs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "readmsg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "params ",
+							"value": "{'pos':2}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/readmsg",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"readmsg"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delmsg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "params",
+							"value": "{'pos':3}",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://dory-msgedit.herokuapp.com/delmsg",
+					"protocol": "https",
+					"host": [
+						"dory-msgedit",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"delmsg"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
