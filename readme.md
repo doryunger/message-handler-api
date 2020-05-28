@@ -26,13 +26,6 @@ Here is a list of users:
 |user1|1Z2w3c4r|
 |user2|1Z2w3c4r|
 
-
-
-#### |Username|    Password|
-|admin|       1z2w3c4r|
-user1       1Z2w3c4r
-user2       1Z2w3c4r
-
 ### Logout
 Signing off a user from the system. 
 After logging out the token will be removed. 
@@ -58,7 +51,7 @@ The request allowing the user to delete a message. There are two methods to dele
 1. Delete message at the current position from 'readmsg' request  - using a session variable that holds that current position of a message
 2. Delete message at a specific position - getting a position within the request's body. If the position is valid the message got deleted
 
-### Postman
+## Postman
 The postman JSON file has been also uploaded to this git as well. 
 The name of the file is 'API_Test.postman_collection.json'. 
 Please also add the variable 'token' to your environment (otherwise, things might not work properly). Init and current values should be set to 0/null. 
