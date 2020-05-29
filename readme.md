@@ -17,15 +17,6 @@ The request is supplied with username and password within its 'body'.
 After successfully logging in a new token will be assigned - there's a code snippet in Postman that should also copy the token
  into an environment variable.
 
-Here is a list of users:
-
-
-|username|password|
-|--|--|
-|admin|1z2w3c4r|
-|user1|1Z2w3c4r|
-|user2|1Z2w3c4r|
-
 ### Logout
 Signing off a user from the system. 
 After logging out the token will be removed. 
