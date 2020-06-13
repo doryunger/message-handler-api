@@ -11,17 +11,17 @@ a unique token for each session instead of the transmission of a complicated coo
 
 ## Requests
 
-### Login
+### /login
 Validates and authenticates the credentials of a user.
 The request is supplied with username and password within its 'body'. 
 After successfully logging in a new token will be assigned - there's a code snippet in Postman that should also copy the token
  into an environment variable.
 
-### Logout
+### /logout
 Signing off a user from the system. 
 After logging out the token will be removed. 
 
-### createmsg
+### /createmsg
 Composing a new message by data provided by a 'payload'.
 The payload contains all the required elements of a message.
 The 'payload' is passed within the body of the request as well. 
@@ -32,15 +32,15 @@ The 'payload' is passed within the body of the request as well.
 }
 ```
 
-### showmsgs
+### /showmsgs
 It provides a list of all the messages of a specific user as a sender and a receiver.
 It doesn't require any parameters or arguments from the user.
 
-### unreadmsgs
+### /unreadmsgs
 A request that provides a list of all the unread messages of a specific user as a sender and a receiver.
 It doesn't require any parameters or arguments from the user.
 
-### readmsg
+### /readmsg
 The request provides one message at a time, going through the message of a specific user as a sender and a receiver. If it encounters an 'unread' message it will turn into a 'read' message. The request can also be provided with a position variable - if the position is valid the message at a specific position will be displayed. Please note that the request cycle the messages endlessly.
 
 ```json
@@ -49,7 +49,7 @@ The request provides one message at a time, going through the message of a speci
 }
 ```
 
-### delmsg
+### /delmsg
 The request allowing the user to delete a message. There are two methods to delete a message:
 1. Delete message at the current position from 'readmsg' request  - using a session variable that holds that current position of a message
 2. Delete message at a specific position - getting a position within the request's body. If the position is valid the message got deleted
