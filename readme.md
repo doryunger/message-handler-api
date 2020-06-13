@@ -26,6 +26,12 @@ Composing a new message by data provided by a 'payload'.
 The payload contains all the required elements of a message.
 The 'payload' is passed within the body of the request as well. 
 
+```json
+{
+   "params": {"receiver":"user","subject":"example","message":"example"}
+}
+```
+
 ### showmsgs
 It provides a list of all the messages of a specific user as a sender and a receiver.
 It doesn't require any parameters or arguments from the user.
@@ -35,12 +41,24 @@ A request that provides a list of all the unread messages of a specific user as 
 It doesn't require any parameters or arguments from the user.
 
 ### readmsg
-The request provides one message at a time, going through the message of a specific user as a sender and a receiver. If it encounters an 'unread' message it will turn into a 'read' message. The request can also be provided with a position variable - if the position is valid the message at a specific position will be displayed. Please note that the request cycle the messages endlessly.   
+The request provides one message at a time, going through the message of a specific user as a sender and a receiver. If it encounters an 'unread' message it will turn into a 'read' message. The request can also be provided with a position variable - if the position is valid the message at a specific position will be displayed. Please note that the request cycle the messages endlessly.
+
+```json
+{
+   "params": {"pos":2}
+}
+```
 
 ### delmsg
 The request allowing the user to delete a message. There are two methods to delete a message:
 1. Delete message at the current position from 'readmsg' request  - using a session variable that holds that current position of a message
 2. Delete message at a specific position - getting a position within the request's body. If the position is valid the message got deleted
+
+```json
+{
+   "params": {"pos":2}
+}
+```
 
 ## Postman
 The postman JSON file has been also uploaded to this git as well. 
